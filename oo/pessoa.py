@@ -12,12 +12,11 @@ class Pessoa:
 
 if __name__ == '__main__':
     filho = Pessoa(nome='Renzo')
-    pai = Pessoa(filho, nome="Luciano")
+    pai = Pessoa(filho, nome="Luciano",idade=40)
     print(Pessoa.cumprimentar(pai))
     print(id(pai))
     print(pai.cumprimentar())
-    print(pai.nome)
-    print(pai.idade)
+    print(pai.nome , 'idade:' ,pai.idade)
     for filhos in pai.filhos:
         print("Nome do Filho:",filhos.nome)
 
