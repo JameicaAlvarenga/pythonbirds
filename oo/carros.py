@@ -16,10 +16,15 @@ os seguintes atributos:
 Valor de diração com valores possíveis: Norte, Sul, Leste, Oeste.
 Método girar_a_direita
 Método girar_a_esquerda
-"""
-    #>>> # Testando motor
-motor = Motor()
-motor.velocidade
+
+       N
+    O     L
+       S
+
+Exemplo:
+    >>> # Testando motor
+    >>> motor = Motor()
+    >>> motor.velocidade
     0
     >>> motor.acelerar()
     >>> motor.velocidade
@@ -87,7 +92,50 @@ motor.velocidade
     >>> carro.girar_a_esquerda()
     >>> carro.calcular_direcao()
     'Oeste'
+"""
 
+NORTE ='Norte'
+SUL = 'Sul'
+LESTE = 'Leste'
+OESTE = 'Oeste'
 
-    class Motor:
+class Carro():
+    def __init__(self,direcao,motor):
+        self.direcao = Direcao()
+        self.motor = Motor()
+
+    def calcular_velocidade(self): #metodo
         pass
+
+    def calcular_direcao(self):
+        pass
+
+    def acelerar(self):
+        pass
+    def frear(self):
+        pass
+
+class Motor:
+    def __init__(self):
+        self.velocidade = 0
+
+    def acelerar(self):
+        self.velocidade += 1
+
+    def frear(self):
+        self.velocidade -= 2
+        self.velocidade = max(0, self.velocidade)
+
+class Direcao:
+    rotacao_a_direita_dct = {NORTE: LESTE, LESTE: SUL, SUL: OESTE,OESTE: NORTE}
+    rotacao_a_esquerda_dct = {NORTE: OESTE, OESTE: SUL, SUL: LESTE, LESTE: NORTE}
+
+    def __init__(self):
+        self.valor = NORTE
+
+
+    def girar_a_direita(self):
+        self.valor = self.rotacao_a_direita_dct[self.valor]
+
+    def girar_a_esquerda(self):
+        self.valor = self.rotacao_a_esquerda_dct[self.valor]
