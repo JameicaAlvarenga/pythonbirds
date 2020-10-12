@@ -101,19 +101,27 @@ OESTE = 'Oeste'
 
 class Carro():
     def __init__(self,direcao,motor):
-        self.direcao = Direcao()
-        self.motor = Motor()
+        self.direcao = direcao
+        self.motor = motor
 
     def calcular_velocidade(self): #metodo
-        pass
+        return self.motor.velocidade
 
     def calcular_direcao(self):
-        pass
+        return self.direcao.valor
 
     def acelerar(self):
-        pass
+        return self.motor.acelerar()
+
     def frear(self):
-        pass
+        return self.motor.frear()
+
+    def girar_a_direita(self):
+        self.direcao.girar_a_direita()
+
+    def girar_a_esquerda(self):
+        self.direcao.girar_a_esquerda()
+
 
 class Motor:
     def __init__(self):
