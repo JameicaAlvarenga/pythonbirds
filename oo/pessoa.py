@@ -11,9 +11,11 @@ class Pessoa:
     def cumprimentar(self):
         return f'Olá {id(self)}'
 
+class Homem(Pessoa): #herança
+    pass
 
 if __name__ == '__main__':
-    filho = Pessoa(nome='Renzo')
+    filho = Homem(nome='Renzo')
     pai = Pessoa(filho, nome="Luciano",idade=40)
     print(Pessoa.cumprimentar(pai))
     print(id(pai))
@@ -28,6 +30,9 @@ if __name__ == '__main__':
     print(filhos.__dict__)
     print(Pessoa.olhos)
     print(pai.olhos)
-
-
+    pessoa = Pessoa('Anonimo')
+    print(isinstance(pessoa,Pessoa))
+    print(isinstance(pessoa,Homem))
+    print(isinstance(filho,Pessoa))
+    print(isinstance(filho,Homem))
 
