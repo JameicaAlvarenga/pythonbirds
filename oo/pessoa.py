@@ -14,7 +14,13 @@ class Pessoa:
 class Homem(Pessoa): #herança
     pass
 
+
+class Mutante(Pessoa):
+    olhos = 3
+
+
 if __name__ == '__main__':
+    filho = Mutante(nome='Renzo')
     filho = Homem(nome='Renzo')
     pai = Pessoa(filho, nome="Luciano",idade=40)
     print(Pessoa.cumprimentar(pai))
