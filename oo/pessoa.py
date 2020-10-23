@@ -9,10 +9,12 @@ class Pessoa:
         #nome = parametro passado
 
     def cumprimentar(self):
-        return f'Olá {id(self)}'
+        return f'Olá, meu nome é {self.nome}'
 
 class Homem(Pessoa): #herança
-    pass
+    def cumprimentar(self): #sobrescrevendo método da classe pai
+        cumprimentar_da_classe_pai=super().cumprimentar()
+        return f'{cumprimentar_da_classe_pai}.Aperto de mão'
 
 
 class Mutante(Pessoa):
@@ -21,8 +23,7 @@ class Mutante(Pessoa):
 
 if __name__ == '__main__':
     filho = Mutante(nome='Renzo')
-    filho = Homem(nome='Renzo')
-    pai = Pessoa(filho, nome="Luciano",idade=40)
+    pai = Homem(filho, nome="Luciano",idade=40)
     print(Pessoa.cumprimentar(pai))
     print(id(pai))
     print(pai.cumprimentar())
@@ -41,4 +42,7 @@ if __name__ == '__main__':
     print(isinstance(pessoa,Homem))
     print(isinstance(filho,Pessoa))
     print(isinstance(filho,Homem))
+    print(filho.olhos)
+    print(pai.cumprimentar())
+    print(filho.cumprimentar())
 
