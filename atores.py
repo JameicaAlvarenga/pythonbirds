@@ -4,8 +4,8 @@ from __future__ import unicode_literals
 
 import math
 
-DESTRUIDO = 'Destruido'
-ATIVO = 'Ativo'
+DESTRUIDO = 'DESTRUIDO'
+ATIVO = 'ATIVO'
 GRAVIDADE = 10  # m/s^2
 
 
